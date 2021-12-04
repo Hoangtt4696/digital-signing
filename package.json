@@ -1,0 +1,28 @@
+{
+  "name": "digital-signing",
+  "version": "1.0.0",
+  "description": "Digital Signing",
+  "main": "index.js",
+  "author": "Hoang Tran",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon -r esm src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.0"
+  }
+}
