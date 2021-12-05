@@ -6,14 +6,20 @@
   "author": "Hoang Tran",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon -r esm src/index.js"
+    "start": "NODE_PATH=./src nodemon -r dotenv/config -r esm src/index.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "esm": "^3.2.25",
+    "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.0.14",
     "passport": "^0.5.0",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "eslint": "^8.4.0",
