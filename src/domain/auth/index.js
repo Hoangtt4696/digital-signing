@@ -18,6 +18,14 @@ class Authenticate {
     return bcrypt.hashSync(password, salt);
   }
 
+  comparePassword(newPass, pass) {
+    if (!newPass || !pass) {
+      return false;
+    }
+
+    return bcrypt.compareSync(newPass, pass);
+  }
+
   async registerAndGenerateToken(email, password) {
     if (!email || !password) {
       throw new Error('Email or password is missing.');
@@ -58,6 +66,22 @@ class Authenticate {
       access: accessToken,
       refresh: refreshToken,
     };
+  }
+
+  async login(email, password) {
+    if (!email || !password) {
+      throw new Error('Email or password is missing.');
+    }
+
+    const user = await UserRepository.getUserByEmail(email);
+
+    if (!user || !this.comparePassword(password, user.password)) {
+      throw new Error('Email or password is incorrect.');
+    }
+
+    const tokens = await this.generateAuthTokens(user);
+
+    return { user, tokens };
   }
 }
 

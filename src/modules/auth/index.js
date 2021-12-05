@@ -16,6 +16,20 @@ class AuthModule {
       next(resError(400, error));
     }
   }
+
+  async login(req, res, next) {
+    try {
+      const {
+        body: { email, password },
+      } = req;
+      const { user, tokens } = await AuthService.login(email, password);
+      const response = resResponse(200, true, { user, tokens });
+
+      res.send(response);
+    } catch (error) {
+      next(resError(400, error));
+    }
+  }
 }
 
 export default new AuthModule();
